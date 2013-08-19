@@ -7,6 +7,9 @@ gem 'rails', '~> 3.2.13'
 #gem 'sqlite3'
 gem 'mysql2'
 
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
