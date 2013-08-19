@@ -1,0 +1,26 @@
+%table#students
+  %tr
+    %th
+      Имя
+    %th
+      Фамилия
+    %th
+      Дата рождения
+    %th
+      Email
+    %th
+      Группа
+    %th
+      IP
+    %th
+      Регистрация
+    %th
+      Семестр
+    %th
+      Характеристика
+    %th
+      Предмет/Оценка
+    %th
+      Средний балл
+  - @students.each do |student|
+    = render student

@@ -1,0 +1,36 @@
+%tr
+  %td
+    = student.name
+  %td
+    = student.secondname
+  %td
+    =# student.dob
+    = Russian::strftime(student.dob, "%e %B %Y г.")
+  %td
+    = student.email
+  %td
+    = student.study_group.title
+  %td
+    = student.ipreg
+  %td
+    =# student.created_at
+    = human_time(student.created_at.localtime)
+  %td
+    = student.study_group.semestr
+  %td
+    = student.study_group.characteristic
+  %td
+    - student.study_group.school_subjects.each do |subject|
+      = subject.title
+      - val = ''
+      - student.evaluation.each do |eval|
+        - val = eval.value if eval.school_subject_id == subject.id
+      = val
+      =# student.evaluation.where('school_subject_id = ?', subject.id).first.value
+      =# subject.evaluations.where('student_id = ?', student.id).first.value
+      =# Evaluation.where('student_id = ? AND school_subject_id = ?', student.id, subject.id).first.value
+      %br
+  %td
+    = student.average.to_s
+  %td
+    = link_to 'Редактировать', edit_student_path(student), remote: true

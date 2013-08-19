@@ -1,0 +1,18 @@
+= form_for(@student, remote: true) do |f|
+  .field
+    = f.label :name, 'Имя студента'
+    = f.text_field :name, required: true
+  .field
+    = f.label :secondname, 'Фамилия студента'
+    = f.text_field :secondname, required: true
+  .field
+    = f.label :dob, 'Дата рождения студента'
+    = f.date_select :dob, start_year: 1970, end_year: 2010 
+  .field
+    = f.label :email, 'Email студента'
+    = f.email_field :email
+  .field
+    = f.label :study_group, 'Группа'
+    =# f.text_field :study_group
+    = f.collection_select :study_group_id, StudyGroup.order('title ASC'), :id, :title, { prompt: true }, { required: true }
+  = f.submit 'Добавить студента'

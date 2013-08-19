@@ -1,0 +1,48 @@
+%h1
+  Тестовое задание
+
+%h2
+  Список студентов
+
+- group_array = StudyGroup.order('title ASC').map { |group| [group.title, group.id] }
+
+= form_tag('/', remote: true, class: 'filter') do
+  
+  = label_tag :name, 'Имя:'
+  = text_field_tag :name
+
+  = label_tag :secondname, 'Фамилия:'
+  = text_field_tag :secondname
+  
+  = label_tag :study_group_id, 'Группа:'
+  = select_tag(:study_group_id, options_for_select(group_array), prompt: '')
+  
+  = label_tag :semestr, 'Семестр'
+  = text_field_tag :semestr
+  
+  %br
+
+  = label_tag :average_start, 'Средняя оценка: от '
+  = text_field_tag :average_start
+  = label_tag :average_end, ' до '
+  = text_field_tag :average_end
+
+  = label_tag :ipreg, 'Повторная регистрация с IP'
+  = check_box_tag :ipreg
+
+  = label_tag :characteristic, 'Характеристика'
+  = check_box_tag :characteristic
+
+  = submit_tag 'Фильтровать'
+
+= render 'students/students'
+
+
+#add_student
+  %h2
+    Добавить студента
+   
+  = render 'students/form'
+
+
+  

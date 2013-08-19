@@ -1,0 +1,15 @@
+ru:
+  date:
+    formats:
+      today: "Сегодня"
+      tomorrow: "Завтра"
+      yesterday: "Вчера"
+      current_year: "%e %B"
+      other_year: "%e %B %Y"
+  time:
+    formats:
+      today: "Сегодня, %H:%M"
+      tomorrow: "Завтра, %H:%M"
+      yesterday: "Вчера, %H:%M"
+      current_year: "%e %B, %H:%M"
+      other_year: "%e %B %Y, %H:%M"
