@@ -35,6 +35,7 @@ before_fork do |server, worker|
       # someone else did our job for us
     end
   end
+end
 
 after_fork do |server, worker|
   # После того как рабочий процесс создан, он устанавливает соединение с базой.
