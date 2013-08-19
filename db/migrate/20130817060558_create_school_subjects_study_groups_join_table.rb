@@ -6,6 +6,6 @@ class CreateSchoolSubjectsStudyGroupsJoinTable < ActiveRecord::Migration
     end
     add_index :school_subjects_study_groups, :school_subject_id
     add_index :school_subjects_study_groups, :study_group_id
-    add_index :school_subjects_study_groups, [:school_subject_id, :study_group_id]
+    #add_index :school_subjects_study_groups, [:school_subject_id, :study_group_id]
   end
 end

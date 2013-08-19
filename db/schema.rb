@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20130817060558) do
     t.integer  "student_id",                     :null => false
     t.integer  "school_subject_id",              :null => false
     t.integer  "value",             :limit => 1, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "evaluations", ["school_subject_id"], :name => "index_evaluations_on_school_subject_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20130817060558) do
 
   create_table "school_subjects", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "school_subjects_study_groups", :id => false, :force => true do |t|
@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(:version => 20130817060558) do
     t.string   "secondname",     :limit => 100, :default => "", :null => false
     t.integer  "study_group_id"
     t.date     "dob",                                           :null => false
-    t.string   "email",          :limit => 100, :default => "", :null => false
+    t.string   "email",          :limit => 100, :default => ""
     t.string   "ipreg",          :limit => 100, :default => "", :null => false
     t.float    "average",                                       :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "students", ["average"], :name => "index_students_on_average"
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(:version => 20130817060558) do
   add_index "students", ["study_group_id"], :name => "index_students_on_study_group_id"
 
   create_table "study_groups", :force => true do |t|
-    t.string   "title",          :limit => 100,  :default => "", :null => false
-    t.integer  "semestr",        :limit => 2,    :default => 1,  :null => false
-    t.text     "characteristic", :limit => 2000
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "title",          :limit => 100, :default => "", :null => false
+    t.integer  "semestr",        :limit => 2,   :default => 1,  :null => false
+    t.text     "characteristic"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "study_groups", ["semestr"], :name => "index_study_groups_on_semestr"
