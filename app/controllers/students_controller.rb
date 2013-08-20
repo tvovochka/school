@@ -79,7 +79,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       # if @student.updated_at == params[:student][:updated_at]
-      if @student.update_attributes(params[:student])
+      if @student.valid? and @student.update_attributes(params[:student])
         #format.html { redirect_to students_path, :notice => 'Информаци о студенте успешно изменена.' }
         format.js 
       else
