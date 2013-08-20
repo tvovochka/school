@@ -41,7 +41,9 @@ class StudentsController < ApplicationController
       group_filter << ["study_groups.characteristic > ''"]
     end
 
-    @students = Student.where(filter.join(" AND ")).includes(:study_group, :evaluation).where(group_filter.join(" AND ")).order('average DESC').limit(10)
+    sql_where = Student.sanitize_str(filter.join(" AND "))
+    sql_group_where = Student.sanitize_str(group_filter.join(" AND "))
+    @students = Student.where(sql_where).includes(:study_group, :evaluation).where(sql_group_where).order('average DESC').limit(10)
     @student = Student.new
     
     respond_to do |format|

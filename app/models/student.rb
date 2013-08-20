@@ -11,4 +11,9 @@ class Student < ActiveRecord::Base
   validates :dob,          presence: true
   validates :average,      presence: true, numericality: true
   validates_associated     :study_group
+
+  def self.sanitize_str (str_where)
+    sanitize_sql(str_where)
+  end
+  
 end
